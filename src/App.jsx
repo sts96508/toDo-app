@@ -1,4 +1,4 @@
-import { Header } from "./components/header";
+import { Header } from "./components/Header";
 import { Tabs } from "./components/Tabs";
 import { ToDoInput } from "./components/ToDoInput";
 import { ToDoList } from "./components/ToDoList";
