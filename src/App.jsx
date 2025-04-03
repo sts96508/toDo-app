@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 function App() {
 
   //comment for learning git
+  // added directly on githug
   const [todos, setTodos] = useState([
     { input: "shave n trim", complete: true }
   ])
