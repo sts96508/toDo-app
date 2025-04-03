@@ -6,14 +6,14 @@ import { useState, useEffect } from "react";
 
 function App() {
 
-  
+  //comment for learning git
   const [todos, setTodos] = useState([
     { input: "shave n trim", complete: true }
   ])
   const [selectedTab, setSelectedTab] = useState('All')
 
   function handleAddTodo(newTodo) {
-    const newToDoList = [...todos, {input: newTodo, complete: false}]
+    const newToDoList = [...todos, { input: newTodo, complete: false }]
     setTodos(newToDoList)
     handleSaveData(newToDoList)
   }
@@ -36,21 +36,21 @@ function App() {
   }
 
   function handleSaveData(currTodos) {
-    localStorage.setItem('todo-app',JSON.stringify({todos:currTodos}))
+    localStorage.setItem('todo-app', JSON.stringify({ todos: currTodos }))
   }
 
-  useEffect(()=> {
-    if (!localStorage || !localStorage.getItem('todo-app')) {return}
-      let db = JSON.parse(localStorage.getItem('todo-app'))
-      setTodos(db.todos)
+  useEffect(() => {
+    if (!localStorage || !localStorage.getItem('todo-app')) { return }
+    let db = JSON.parse(localStorage.getItem('todo-app'))
+    setTodos(db.todos)
   }, [])
 
   return (
     <>
       <Header todos={todos} />
-      <Tabs todos={todos} selectedTab={selectedTab} setSelectedTab={setSelectedTab}/>
-      <ToDoList todos={todos} selectedTab={selectedTab} handleDeleteToDo={handleDeleteToDo} handleCompleteToDo={handleCompleteToDo}/>
-      <ToDoInput handleAddTodo={handleAddTodo}/>
+      <Tabs todos={todos} selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
+      <ToDoList todos={todos} selectedTab={selectedTab} handleDeleteToDo={handleDeleteToDo} handleCompleteToDo={handleCompleteToDo} />
+      <ToDoInput handleAddTodo={handleAddTodo} />
     </>
   );
 }
